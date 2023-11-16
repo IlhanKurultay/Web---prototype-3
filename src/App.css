@@ -1,13 +1,28 @@
 h1 {
-  color: #0e0e0e;
+  font-weight: 700;
+  background: -webkit-linear-gradient(#fff, #0e0e10);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  font-size: 96px;
 }
-.Gradient_radial {
-  background: radial-gradient(
+h2 {
+  background: -webkit-linear-gradient(#fff, #0e0e10);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  margin-bottom: 0;
+  font-size: 64px;
+  margin-top: 0;
+}
+p {
+  font-size: 14px;
+}
+/*.Gradient_radial {
+  /*  background: radial-gradient(
     circle at 50% 50%,
     #23262f 0%,
     #17181d 25%,
     #0e0e0e 50%
-  );
+  ); 
   width: 1000px;
   height: 1000px;
   position: absolute;
@@ -20,4 +35,277 @@ h1 {
   z-index: -1;
   bottom: 100px;
   top: -600px;
+}*/
+.LoginForm {
+  background: linear-gradient(#19191d, #000000, #19191d);
+  width: 0;
+  height: 0;
+  display: grid;
+  grid-template-rows: 1fr 5fr;
+  grid-template-columns: 1fr 5fr;
+  padding: 2%;
+  border-radius: 30px;
+  overflow: hidden;
+  animation: expand 0.5s ease-in-out forwards;
+}
+
+@keyframes expand {
+  from {
+    width: 0;
+    height: 0;
+  }
+  to {
+    width: 100%;
+    height: 60vh;
+  }
+}
+
+.closing {
+  background-color: black;
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  align-content: center;
+  justify-items: center;
+  height: 0;
+  overflow: hidden;
+  animation: slideDown 0.5s ease-in-out forwards 0.5s; /* Delay the animation by 0.5s */
+}
+
+@keyframes slideDown {
+  from {
+    height: 0;
+  }
+  to {
+    height: 100%;
+  }
+}
+
+.closing {
+  border-top-left-radius: 15px;
+}
+.MainScreen {
+  width: 70%;
+  margin: auto;
+  text-align: center;
+  height: 50vh;
+}
+.closing div {
+  border-radius: 80px;
+  width: 25px;
+  height: 25px;
+}
+.close {
+  background-color: #bb797e;
+}
+.minimize {
+  background-color: #bbb879;
+}
+.full {
+  background-color: #79bb7c;
+}
+.sideBar {
+  background-color: #0c0d0f;
+  color: #fff;
+  display: grid;
+  grid-template-rows: 1fr 1fr 1fr 1fr;
+  gap: 1em;
+  height: 0;
+  overflow: hidden;
+  animation: slideDownG 1.25s ease-in-out forwards 0.5s;
+}
+button {
+  margin: 7%;
+}
+.sideBar button:nth-child(1) {
+  grid-row: 2;
+  background-color: #55a5f2;
+  border: none;
+  border-radius: 8px;
+}
+.sideBar button:nth-child(2) {
+  grid-row: 3;
+  background-color: white;
+  border: none;
+  border-radius: 8px;
+}
+.login {
+  background-color: #090a0c;
+  border-bottom-right-radius: 15px;
+  height: 0;
+  overflow: hidden;
+  animation: slideDownG 1.25s ease-in-out forwards 0.5s; /* Delay the animation by 0.5s */
+  display: grid;
+}
+
+@keyframes slideDownG {
+  from {
+    height: 0;
+  }
+  to {
+    height: 100%; /* Set to 'auto' or a specific height based on your design */
+  }
+}
+
+.nav {
+  background-color: black;
+  height: 0;
+  overflow: hidden;
+  animation: slideDown 0.5s ease-in-out forwards 0.5s; /* Delay the animation by 0.5s */
+  border-top-right-radius: 15px;
+}
+
+.nav ul {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr;
+  margin: 0;
+  padding: 0;
+  height: 100%;
+  align-items: end;
+  justify-content: end;
+  /*grid-template-areas: ". . . facebook google";*/
+  gap: 1em;
+  width: 97%;
+}
+.nav ul li {
+  background-color: #1d1f25;
+  list-style-type: none;
+  height: 0%;
+  display: grid;
+  align-content: center;
+  border-top-right-radius: 30px;
+  border-top-left-radius: 30px;
+  animation: slideIn 0.5s ease-out forwards 2s; /* Adjust the duration as needed */
+  color: white;
+  overflow: hidden;
+}
+
+@keyframes slideIn {
+  from {
+    height: 0;
+  }
+  to {
+    height: 50%;
+  }
+}
+/*.nav ul li:nth-child(1) {
+  grid-area: facebook;
+}
+.nav ul li:nth-child(2) {
+  grid-area: google;
+}*/
+.form {
+  display: grid;
+  width: 40%;
+  margin: auto;
+  grid-template-rows: 1fr 1fr 1fr;
+}
+.form input {
+  background-color: #fff;
+  border: 1px solid black;
+  border-radius: 6px;
+  padding: 3%; /* Adjusted padding for better visibility */
+  color: #fff;
+  margin-top: 15px;
+  width: 0%; /* Set initial width to 100% */
+  opacity: 1; /* Set initial opacity to 1 */
+  animation: slideInWidth 1s ease-out forwards 1s;
+}
+
+@keyframes slideInWidth {
+  0% {
+    width: 0%;
+    opacity: 1;
+    background-color: #fff; /* Start with white background */
+    border: 1px solid black;
+  }
+  90% {
+    width: 90%;
+    opacity: 1;
+    background-color: #fff; /* Transition to the final background color */
+    border: 1px solid black;
+  }
+  100% {
+    width: 100%;
+    opacity: 1;
+    background-color: #090a0c; /* Transition to the final background color */
+    border: 1px solid #fff;
+  }
+}
+
+.form .buttonPages {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr 1fr;
+  gap: 1em;
+  margin-top: 15px;
+  color: white;
+}
+.submit {
+  grid-column: 2;
+  background-color: #3263e7;
+  border-radius: 50px;
+  align-items: center;
+  display: grid;
+}
+.register {
+  grid-column: 3;
+  background-color: #000000;
+  border-radius: 50px;
+  align-items: center;
+  display: grid;
+}
+.login h2 {
+  transform: scale(
+    0.8
+  ); /* Initial scale, set it to less than 1 for the pop effect */
+  opacity: 0; /* Initial opacity, set to 0 to make it invisible */
+  animation: popUp 0.5s ease-out forwards 0.8s; /* Add a delay of 0.5s to start after the form animation */
+}
+
+@keyframes popUp {
+  from {
+    transform: scale(0.8);
+    opacity: 0;
+  }
+  to {
+    transform: scale(1);
+    opacity: 1;
+  }
+}
+
+.succesMsg {
+  display: grid;
+  border-radius: 15px;
+  color: #155f47;
+  background-color: #d1f0e3;
+  font-weight: 700;
+  height: 56px;
+  opacity: 0; /* Initially hidden */
+  animation: fadeInOut 2s ease-in-out forwards; /* Adjust the duration as needed */
+}
+
+@keyframes fadeInOut {
+  0% {
+    opacity: 0; /* Start invisible */
+  }
+  25% {
+    opacity: 0.5; /* Fade in */
+  }
+  50% {
+    opacity: 1;
+  }
+  75% {
+    opacity: 0.5;
+  }
+  100% {
+    opacity: 0; /* Stay visible */
+  }
+}
+button {
+  cursor: pointer;
+  background-color: #3263e7;
+  border: none;
+  border-radius: 15px;
+}
+.active {
+  background-color: #323232 !important;
 }
