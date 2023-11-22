@@ -1,9 +1,12 @@
 import React, { useState } from "react";
 import "./App.css";
 //import SignIn from "./components/SignIn";
+import { auth } from "./firebase";
+import { GoogleAuthProvider, signInWithPopup } from "firebase/auth";
 import SignUp from "./components/SignUp";
 import AuthDetails from "./components/AuthDetails";
 import SignIn from "./components/SignIn";
+import Dashboard from "./components/Dashboard";
 
 function App() {
   const [showSignUp, setShowSignUp] = useState(false);
@@ -13,6 +16,10 @@ function App() {
   };
   const handleLoginClick = () => {
     setShowSignUp(false);
+  };
+  const handleGoogle = async (e) => {
+    const provider = await new GoogleAuthProvider();
+    return signInWithPopup(auth, provider);
   };
   return (
     <div className="Desktop">
@@ -40,13 +47,21 @@ function App() {
                 Login
               </li>
               <li>Facebook</li>
-              <li>Google</li>
+              <li onClick={handleGoogle}>Google</li>
             </ul>
           </div>
           <div className="sideBar">
             <AuthDetails />
           </div>
-          <div className="login">{showSignUp ? <SignUp /> : <SignIn />}</div>
+          <div className="login">
+            {AuthDetails.authUser ? (
+              <Dashboard />
+            ) : showSignUp ? (
+              <SignUp />
+            ) : (
+              <SignIn />
+            )}
+          </div>
         </div>
       </div>
     </div>

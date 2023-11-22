@@ -47,6 +47,8 @@ p {
   border-radius: 30px;
   overflow: hidden;
   animation: expand 0.5s ease-in-out forwards;
+  border: 1px solid #5a5a5a;
+  margin: auto;
 }
 
 @keyframes expand {
@@ -55,7 +57,7 @@ p {
     height: 0;
   }
   to {
-    width: 100%;
+    width: 80%;
     height: 60vh;
   }
 }
@@ -239,13 +241,13 @@ button {
   margin-top: 15px;
   color: white;
 }
-.submit {
+/*.submit {
   grid-column: 2;
   background-color: #3263e7;
   border-radius: 50px;
   align-items: center;
   display: grid;
-}
+} */
 .register {
   grid-column: 3;
   background-color: #000000;
