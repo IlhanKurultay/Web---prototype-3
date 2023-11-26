@@ -13,16 +13,13 @@ function App() {
   const [showSignUp, setShowSignUp] = useState(false);
   const [authUser, setAuthUser] = useState(null);
 
-  /* oplossing voorr dashboard te laten tonnen */
+  /* oplossing voor dashboard te laten tonnen */
   useEffect(() => {
-    // Set up an observer to listen for changes in authentication state
     const unsubscribe = onAuthStateChanged(auth, (user) => {
       setAuthUser(user);
     });
-
-    // Clean up the observer when the component is unmounted
     return () => unsubscribe();
-  }, []); // The empty dependency array ensures that this effect runs only once during component mount
+  }, []); 
 
   const handleRegisterClick = () => {
     setShowSignUp(true);
