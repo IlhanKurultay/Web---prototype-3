@@ -16,6 +16,9 @@ h2 {
 p {
   font-size: 14px;
 }
+li {
+  cursor: pointer;
+}
 /*.Gradient_radial {
   /*  background: radial-gradient(
     circle at 50% 50%,
@@ -114,7 +117,16 @@ p {
   height: 0;
   overflow: hidden;
   animation: slideDownG 1.25s ease-in-out forwards 0.5s;
+  border-bottom-left-radius: 15px;
 }
+.userList {
+  max-height: 400px; /* Set a fixed height for the ul */
+  overflow-y: auto; /* Enable vertical scrolling when content exceeds the ul height */
+  list-style: none; /* Remove default list styles */
+  padding: 0; /* Remove default padding */
+  margin: 0; /* Remove default margin */
+}
+
 button {
   margin: 7%;
 }
@@ -276,30 +288,24 @@ button {
 
 .succesMsg {
   display: grid;
-  border-radius: 15px;
-  color: #155f47;
-  background-color: #d1f0e3;
+  border-radius: 8px;
+  color: white;
+  background-color: #1d1f25;
   font-weight: 700;
   height: 56px;
-  opacity: 0; /* Initially hidden */
-  animation: fadeInOut 2s ease-in-out forwards; /* Adjust the duration as needed */
+  animation: 2s fadeInOut ease-in-out forwards;
+  width: 36%;
 }
 
 @keyframes fadeInOut {
   0% {
-    opacity: 0; /* Start invisible */
+    opacity: 100;
   }
-  25% {
-    opacity: 0.5; /* Fade in */
-  }
-  50% {
-    opacity: 1;
-  }
-  75% {
-    opacity: 0.5;
+  99% {
+    opacity: 100;
   }
   100% {
-    opacity: 0; /* Stay visible */
+    opacity: 0;
   }
 }
 button {
@@ -310,4 +316,34 @@ button {
 }
 .active {
   background-color: #323232 !important;
+}
+
+.dashboardUi ul {
+  background-color: #1d1f25;
+  border-radius: 8px;
+  color: white;
+  text-align: start;
+  padding: 0px;
+}
+.dashboardUi ul div {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  padding: 3%;
+  border-bottom: 1px solid;
+}
+.dashboardUi ul li {
+  list-style-type: none;
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  padding-left: 3%;
+}
+.errorMsg {
+  display: grid;
+  border-radius: 8px;
+  color: white;
+  background-color: #1d1f25;
+  font-weight: 700;
+  height: 56px;
+  animation: 2s fadeInOut ease-in-out forwards;
+  width: 36%;
 }

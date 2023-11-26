@@ -1,23 +1,37 @@
 import { createUserWithEmailAndPassword } from "firebase/auth";
 import React, { useState } from "react";
-import SuccesMsg from "./SuccesMsg";
-import { auth } from "../firebase";
-
+import { auth, firestore } from "../firebase";
+import { doc, setDoc } from "firebase/firestore";
+import ErrorMsg from "./ErrorMsg";
 import "../App.css";
 const SignUp = () => {
   const [email, SetEmail] = useState("");
   const [password, SetPassword] = useState("");
-  const [successMessage, setSuccessMessage] = useState("");
+  const [error, setError] = useState(null); // State for error message
+  /* const [successMessage, setSuccessMessage] = useState(""); */
+
   const signUp = (e) => {
     e.preventDefault();
     createUserWithEmailAndPassword(auth, email, password)
       .then((userCredentials) => {
-        console.log(userCredentials);
-        setSuccessMessage("Sign up successful!");
+        const uid = userCredentials.user.uid;
+        const userRef = doc(firestore, "users", uid);
+        setDoc(userRef, {
+          email: email,
+        })
+          .then(() => {
+            console.log("User information successfully stored in Firestore!");
+            /* setSuccessMessage("Sign up successful!"); */
+          })
+          .catch((error) => {
+            console.error("Error storing user information: ", error);
+          });
       })
       .catch((error) => {
         console.log(error);
-        setSuccessMessage("");
+        console.log("The user is already in use");
+        setError(error.message);
+        /*setSuccessMessage("");*/
       });
   };
   return (
@@ -44,12 +58,9 @@ const SignUp = () => {
               <p>Submit</p>
             </button>
           </div>
-          <div className="Login">
-            <p>Login</p>
-          </div>
         </div>
       </form>
-      {successMessage && <SuccesMsg />}
+      {error && <ErrorMsg message={error} />}
     </div>
   );
 };
